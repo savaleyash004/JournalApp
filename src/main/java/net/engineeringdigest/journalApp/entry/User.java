@@ -1,5 +1,6 @@
 package net.engineeringdigest.journalApp.entry;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
@@ -16,12 +17,15 @@ import java.util.List;
 @Document(collection="users")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     private ObjectId id;
     @Indexed(unique = true)
     @NonNull
     private String userName;
+    private String email;
+    private boolean sentimentAnalysis;
     @NonNull
     private String password;
     //    private LocalDateTime date; // MongoDB works well with java.util.Date
